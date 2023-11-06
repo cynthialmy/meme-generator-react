@@ -57,3 +57,11 @@ main {
 	border: none;
 	cursor: pointer;
 }
+
+.meme--image {
+	padding: auto;
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
