@@ -13,8 +13,8 @@ export default function Meme() {
 			allMemeImages[Math.floor(Math.random() * allMemeImages.length)];
 		setMeme(() => ({
 			...meme,
-			// topText: randomMeme.name,
-			// bottomText: randomMeme.id,
+			// topText: inputTopText.value,
+			// bottomText: inputBottomText.value,
 			url: randomMeme.url,
 		}));
 	}
