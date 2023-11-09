@@ -58,6 +58,10 @@ main {
 	cursor: pointer;
 }
 
+.meme {
+	position: relative;
+}
+
 .meme--image {
 	padding: auto;
 	max-width: 100%;
