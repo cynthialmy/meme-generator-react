@@ -36,9 +36,13 @@ export default function Meme() {
 					Get a new meme image 🖼
 				</button>
 			</div>
-			{meme.url && (
-				<img src={meme.url} alt="meme" className="meme--image" />
-			)}
+			<div className="meme">
+				{meme.url && (
+					<img src={meme.url} alt="meme" className="meme--image" />
+				)}
+				<h2 className="meme--text top">One does not simply</h2>
+				<h2 className="meme--text bottom">Walk into Mordor</h2>
+			</div>
 		</main>
 	);
 }
