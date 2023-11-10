@@ -5,23 +5,25 @@ export default function Meme() {
 	const [meme, setMeme] = React.useState({
 		topText: "",
 		bottomText: "",
-		url: "",
+		randomImage: "",
 	});
-	const allMemeImages = memesData.data.memes;
 
-	function getRandomMeme() {
-		const randomMeme =
-			allMemeImages[Math.floor(Math.random() * allMemeImages.length)];
-		setMeme(() => ({
-			...meme,
-			url: randomMeme.url,
+	const [allMemes, setAllMemes] = React.useState(memesData);
+
+	function getMemeImage() {
+		const memesArray = allMemes.data.memes;
+		const randomNumber = Math.floor(Math.random() * memesArray.length);
+		const url = memesArray[randomNumber].url;
+		setMeme((prevMeme) => ({
+			...prevMeme,
+			randomImage: url,
 		}));
 	}
 
 	function handleChange(event) {
 		const { name, value } = event.target;
-		setMeme(() => ({
-			...meme,
+		setMeme((prevMeme) => ({
+			...prevMeme,
 			[name]: value,
 		}));
 	}
@@ -45,13 +47,17 @@ export default function Meme() {
 					value={meme.bottomText}
 					onChange={handleChange}
 				/>
-				<button className="form--button" onClick={getRandomMeme}>
+				<button className="form--button" onClick={getMemeImage}>
 					Get a new meme image 🖼
 				</button>
 			</div>
-			{meme.url && (
+			{meme.randomImage && (
 				<div className="meme">
-					<img src={meme.url} alt="meme" className="meme--image" />
+					<img
+						src={meme.randomImage}
+						alt="meme"
+						className="meme--image"
+					/>
 					<h2 className="meme--text top">{meme.topText}</h2>
 					<h2 className="meme--text bottom">{meme.bottomText}</h2>
 				</div>
